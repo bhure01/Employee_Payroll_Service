@@ -10,7 +10,6 @@ public class FileUtility {
             for (File file : allContents) {
                 deleteFiles(file);
             }
-        }
-        return contentsToDelete.delete();
+        } return contentsToDelete.delete();
     }
 }
