@@ -2,7 +2,6 @@ package com.bridgelabz;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import java.util.Scanner;
 
 public class EmployeePayrollService {
@@ -20,16 +19,13 @@ public class EmployeePayrollService {
         this.employeePayrollList = employeePayrollList;
     }
 
-
     public EmployeePayrollService() {
     }
-
 
     public static void main(String[] args) {
         EmployeePayrollService employeePayrollService = new EmployeePayrollService(employeePayrollList);
         Scanner consoleInputReader = new Scanner(System.in);
         employeePayrollService.readEmployeePayrollData(consoleInputReader);
-
         employeePayrollService.writeEmployeePayrollData(IOService.CONSOLE_IO);
     }
 
@@ -43,6 +39,7 @@ public class EmployeePayrollService {
         double salary = consoleInputReader.nextDouble();
         employeePayrollList.add(new EmployeePayrollData(id, name, salary));
     }
+
     /* Write Employee Payroll data to console */
     public void writeEmployeePayrollData(IOService ioService) {
         if(ioService.equals(IOService.CONSOLE_IO))
@@ -51,4 +48,27 @@ public class EmployeePayrollService {
             new EmployeePayrollFileIOService().writeData(employeePayrollList);
         }
     }
+
+    /* Print Employee Payroll */
+    public void printData(IOService fileIo) {
+        if(fileIo.equals(IOService.FILE_IO)) {
+            new EmployeePayrollFileIOService().printData();
+        }
+
+    }
+
+    public long countEntries(IOService fileIo) {
+        if(fileIo.equals(IOService.FILE_IO)) {
+            return new EmployeePayrollFileIOService().countEntries();
+        }
+        return 0;
+    }
+
+    public List<EmployeePayrollData> readPayrollData(IOService ioService) {
+        if (ioService.equals(IOService.FILE_IO))
+            this.employeePayrollList = new EmployeePayrollFileIOService().readData();
+        return employeePayrollList;
+    }
+
+
 }

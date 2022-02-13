@@ -8,13 +8,13 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Java8WatchServiceExample {
+public class Java8WatchService {
 
     private final WatchService watcher;
     private final Map<WatchKey, Path> keys;
 
     /* Creates a WatchService and registers the given directory */
-    Java8WatchServiceExample(Path dir) throws IOException {
+    public Java8WatchService(Path dir) throws IOException {
         this.watcher = FileSystems.getDefault().newWatchService();
         this.keys = new HashMap<WatchKey, Path>();
         walkAndRegisterDirectories(dir);
@@ -46,7 +46,7 @@ public class Java8WatchServiceExample {
 
     /* Process all events for keys queued to the watcher */
     @SuppressWarnings("rawtypes")
-    void processEvents() {
+    public void processEvents() {
         while (true) {
             /* wait for key to be signalled */
             WatchKey key;
@@ -82,7 +82,6 @@ public class Java8WatchServiceExample {
                         keys.remove(key);
                 }
             }
-
 
             // reset key and remove from set if directory no longer accessible
             boolean valid = key.reset();
