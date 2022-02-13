@@ -6,7 +6,7 @@ public class EmployeePayrollData {
     private String name;
     private double salary;
 
-    /* Constructor */
+
     public EmployeePayrollData(int id, String name, double salary) {
         this.id = id;
         this.name = name;
@@ -17,5 +17,4 @@ public class EmployeePayrollData {
     public String toString() {
         return "EmployeePayrollData [id=" + id + ", name=" + name + ", salary=" + salary + "]";
     }
-
 }

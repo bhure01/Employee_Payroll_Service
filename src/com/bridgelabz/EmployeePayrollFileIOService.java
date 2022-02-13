@@ -22,7 +22,6 @@ public class EmployeePayrollFileIOService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     /* print the data */
@@ -44,5 +43,4 @@ public class EmployeePayrollFileIOService {
         }
         return entries;
     }
-
 }
