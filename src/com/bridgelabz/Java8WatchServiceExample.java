@@ -83,6 +83,7 @@ public class Java8WatchServiceExample {
                 }
             }
 
+
             // reset key and remove from set if directory no longer accessible
             boolean valid = key.reset();
             if (!valid) {

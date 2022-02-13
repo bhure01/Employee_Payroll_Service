@@ -33,7 +33,6 @@ public class EmployeePayrollService {
         employeePayrollService.writeEmployeePayrollData(IOService.CONSOLE_IO);
     }
 
-
     /* Read Employee Payroll data from console */
     public void readEmployeePayrollData(Scanner consoleInputReader) {
         System.out.println("Enter Employee ID: ");
@@ -44,7 +43,6 @@ public class EmployeePayrollService {
         double salary = consoleInputReader.nextDouble();
         employeePayrollList.add(new EmployeePayrollData(id, name, salary));
     }
-
     /* Write Employee Payroll data to console */
     public void writeEmployeePayrollData(IOService ioService) {
         if(ioService.equals(IOService.CONSOLE_IO))
